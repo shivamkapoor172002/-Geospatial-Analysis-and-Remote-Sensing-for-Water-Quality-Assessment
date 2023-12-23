@@ -1,4 +1,5 @@
 # Geospatial Analysis and Remote Sensing for Water Quality Assessment
+![WhatsApp Image 2023-12-23 at 18 05 57_cc2ca812](https://github.com/shivamkapoor172002/Geospatial-Analysis-and-Remote-Sensing-for-Water-Quality-Assessment/assets/92868323/f53fefa1-c3b8-4b49-847f-e822abd06fdd)
 
 ## Overview
 
