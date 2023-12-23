@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Quality Analysis</title>
+
+    <!-- Add Raleway font style -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://www.nps.gov/articles/images/MackenzieRiver1920x1718_NASA_web.jpg?maxwidth=650&autorotate=false');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        h1 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            background-color: #7b4f4f;
+            padding: 10px;
+            font-family: 'Raleway', sans-serif; /* Apply Raleway font */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="file"] {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 10px solid #fff;
+            border-radius: 5px;
+            font-size: 26px;
+            width: 100%;
+            box-sizing: border-box;
+            color: #333;
+            background-color: #fff;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            font-size: 35px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p.error {
+            color: red;
+            margin-top: 10px;
+        }
+
+        .image-block {
+            width: 48%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        #image-preview {
+            max-width: 100%;
+            max-height: 300px;
+            width: auto;
+            height: auto;
+            border-radius: 20px;
+        }
+
+        #image-preview img {
+            width: 20%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Water Quality Analysis</h1>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">
+        <div style="border: 10px solid #fff; border-radius: 15px; padding: 20px;">
+            <input type="file" name="file" accept=".jpg, .jpeg, .png" id="file-input" required>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+    <!-- Image preview container -->
+    <div id="image-preview"></div>
+
+    <script>
+        // JavaScript for handling file input and updating image preview
+        document.getElementById('file-input').addEventListener('change', function (e) {
+            var fileInput = e.target;
+            var file = fileInput.files[0];
+
+            if (file) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var imagePreview = document.getElementById('image-preview');
+                    imagePreview.innerHTML = '<img src="' + e.target.result + '" alt="Selected Image">';
+                };
+
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>

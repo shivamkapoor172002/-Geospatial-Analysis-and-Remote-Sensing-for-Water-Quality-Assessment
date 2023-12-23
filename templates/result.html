@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Analysis Result</title>
+
+    <!-- Add Raleway font style -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap">
+
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-image: url('https://media.maptiler.com/old/img/maps/satellite/slider-1/slide-1.webp');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .result-container {
+            background-color: rgba(0, 0, 0, 0.7); /* Black box with some transparency */
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        h1, p, h2 {
+            margin: 10px;
+            color: #fff; /* Set text color to white */
+        }
+
+        h1 {
+            background-color: #000000;
+            padding: 10px;
+        }
+
+        h2 {
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        .result-container p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .result-container h2 {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Analysis Result</h1>
+    
+    <div class="result-container">
+        <p>Uploaded Image: {{ image_path }}</p>
+        <p>NDVI: {{ ndvi }}</p>
+        <p>Water Quality Parameters: {{ water_quality_params }}</p>
+        <p>NDWI: {{ ndwi }}</p>
+        <p>{{ water_quality }}</p>
+    </div>
+
+    <h2>Map</h2>
+    {% include map_html_path %}
+</body>
+</html>
